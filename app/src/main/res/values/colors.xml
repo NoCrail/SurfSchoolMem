@@ -3,4 +3,7 @@
     <color name="colorPrimary">#23213F</color>
     <color name="colorPrimaryDark">#23213F</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="ErrorColor">#FF575D</color>
+    <color name="ActiveColor">#1EF0D7</color>
+    <color name="loginEditTextBg">#2E2C49</color>
 </resources>

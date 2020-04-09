@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SurfSchoolMem</string>
+    <string name="Login">Логин</string>
+    <string name="Password">Пароль</string>
+    <string name="SignIn">Войти</string>
+    <string name="EmptyFieldMsg">Поле не может быть пустым</string>
+    <string name="ShortPassError">Слишком короткий пароль</string>
+</resources>

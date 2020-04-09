@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">SurfSchoolMem</string>
+    <string name="Login">Login</string>
+    <string name="Password">Password</string>
+    <string name="SignIn">Sign In</string>
+    <string name="EmptyFieldMsg">Can\'t be empty</string>
+    <string name="ShortPassError">Too short password</string>
 </resources>
