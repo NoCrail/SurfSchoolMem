@@ -9,8 +9,8 @@
     tools:context=".AuthenticationActivity">
 
 
-
     <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -28,11 +28,11 @@
             android:layout_marginTop="80dp"
             android:layout_marginEnd="16dp"
             app:boxBackgroundColor="@color/loginEditTextBg"
-            app:errorEnabled="true"
+            app:boxStrokeColor="@color/ActiveColor"
 
+            app:errorEnabled="true"
             app:errorIconDrawable="@android:color/transparent"
             app:errorTextColor="@color/ErrorColor"
-            app:boxStrokeColor="@color/ActiveColor"
 
 
             >

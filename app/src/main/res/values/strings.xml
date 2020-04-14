@@ -5,4 +5,5 @@
     <string name="SignIn">Sign In</string>
     <string name="EmptyFieldMsg">Can\'t be empty</string>
     <string name="ShortPassError">Too short password</string>
+    <string name="LoginError">Wrong data! Try again</string>
 </resources>
