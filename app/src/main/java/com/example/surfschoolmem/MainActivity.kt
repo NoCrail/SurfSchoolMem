@@ -9,6 +9,8 @@ import com.example.surfschoolmem.network.ApiService
 import com.example.surfschoolmem.network.RetrofitCallback
 import com.example.surfschoolmem.network.response.LoginResponse
 import com.example.surfschoolmem.network.structures.User
+import com.google.android.material.badge.BadgeDrawable
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Callback
 import retrofit2.Retrofit
@@ -17,7 +19,7 @@ import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
 
-    val APP_PREFERENCES = "user_setup"
+
 
     lateinit var pref: SharedPreferences
 
@@ -25,16 +27,50 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        pref = getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE)
-        text.setText(pref.getString(ID_PREF, "null"))
-
-
+        //pref = getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE)
+        //text.setText(pref.getString(ID_PREF, "null"))
+        InitFragment()
+        setSupportActionBar(toolbar)
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
 
 
 
     }
 
+    fun InitFragment(){
+        val fragment = FeedFragment()
+        supportFragmentManager.beginTransaction().replace(R.id.FragmentContainer_Layout, fragment, fragment.javaClass.getSimpleName())
+            .commit()
+    }
 
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.feed -> {
+                    val fragment = FeedFragment()
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.FragmentContainer_Layout,
+                        fragment,
+                        fragment.javaClass.getSimpleName()
+                    )
+                        .commit()
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.add -> {
+                    val fragment = AddMemFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.FragmentContainer_Layout, fragment, fragment.javaClass.simpleName)
+                        .commit()
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.profile -> {
+                    val fragment = ProfileFragment()
+                    supportFragmentManager.beginTransaction().replace(R.id.FragmentContainer_Layout, fragment, fragment.javaClass.getSimpleName())
+                        .commit()
+                    return@OnNavigationItemSelectedListener true
+                }
+            }
+            false
+        }
 
 }
