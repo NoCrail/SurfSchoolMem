@@ -10,10 +10,12 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:itemIconTint="@color/bottom_nav_color"
+        android:background="@color/bottomMenu"
         app:itemIconSize="40dp"
+
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemRippleColor="@color/ActiveColor"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/main_bottom_menu" />
@@ -22,7 +24,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="?attr/colorPrimary"
+        android:background="@color/backgroundColor2"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,7 +34,7 @@
         android:id="@+id/FragmentContainer_Layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-
+        android:background="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         tools:layout_editor_absoluteX="1dp">

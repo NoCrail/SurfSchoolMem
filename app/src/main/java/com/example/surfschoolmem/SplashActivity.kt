@@ -7,13 +7,13 @@ import android.os.Handler
 
 class SplashActivity : AppCompatActivity() {
 
-    private val SPLASH_TIME_OUT:Long = 1000
+    private val SPLASH_TIME_OUT: Long = 1000
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
-            startActivity(Intent(this,MainActivity::class.java)) //MainActivity
+            startActivity(Intent(this, AuthenticationActivity::class.java)) //MainActivity
             finish()
         }, SPLASH_TIME_OUT)
     }
