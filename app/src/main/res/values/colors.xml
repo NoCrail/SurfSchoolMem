@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#23213F</color>
+    <color name="colorPrimaryDark">#23213F</color>
     <color name="colorAccent">#03DAC5</color>
+    <color name="ErrorColor">#FF575D</color>
+    <color name="ActiveColor">#1EF0D7</color>
+    <color name="loginEditTextBg">#2E2C49</color>
+
 </resources>
