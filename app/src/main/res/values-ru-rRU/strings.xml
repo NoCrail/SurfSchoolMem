@@ -9,4 +9,8 @@
     <string name="login_error_msg">Вы ввели неверные данные. Попробуйте еще раз</string>
     <string name="mems_loading_error_msg">"Не удалось загрузить ленту
         Обновите экран или попробуйте позже"</string>
+    <string name="toolbar_popular_memes">Популярные мемы</string>
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="n_days_ago">%1$d д. назад</string>
 </resources>

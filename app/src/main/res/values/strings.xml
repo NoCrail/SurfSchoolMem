@@ -7,6 +7,10 @@
     <string name="short_password_msg">Too short password</string>
     <string name="login_error_msg">Wrong data! Try again</string>
     <string name="mems_loading_error_msg">Failed to load feed. Refresh screen or try again later</string>
+    <string name="toolbar_popular_memes">Popular memes</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="n_days_ago">%1$d days ago</string>
 
 
 </resources>

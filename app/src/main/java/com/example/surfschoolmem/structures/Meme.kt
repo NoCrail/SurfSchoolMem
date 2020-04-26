@@ -1,6 +1,11 @@
-package com.example.surfschoolmem.network.structures
+package com.example.surfschoolmem.structures
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 data class Meme(
+    @PrimaryKey
     val id: Long,
     val title: String?,
     val description: String?,

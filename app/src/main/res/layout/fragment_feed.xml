@@ -34,11 +34,11 @@
 
         <TextView
             android:id="@+id/loading_error_tv"
-            android:layout_width="360dp"
-            android:layout_height="33dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="@string/mems_loading_error_msg"
             android:textAlignment="center"
-            android:visibility="invisible"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

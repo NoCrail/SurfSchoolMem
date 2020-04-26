@@ -11,6 +11,8 @@
 
     app:cardCornerRadius="8dp">
 
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +20,7 @@
         android:background="@color/lightBackgroundColor">
 
         <ImageView
-            android:id="@+id/meme_image"
+            android:id="@+id/memeImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -29,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
         <TextView
-            android:id="@+id/meme_title"
+            android:id="@+id/memeTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="1"
@@ -38,33 +40,37 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/meme_image"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/memeImage"></TextView>
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="394dp"
-            android:layout_height="44dp"
-            android:layout_alignParentBottom="true"
+            android:layout_width="381dp"
+            android:layout_height="34dp"
+
             android:orientation="horizontal"
-            android:paddingLeft="8dp"
+            android:paddingLeft="20dp"
             android:paddingBottom="8dp"
+            android:padding="8dp"
+            android:paddingRight="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/meme_title">
+            app:layout_constraintTop_toBottomOf="@+id/memeTitle">
 
             <ImageButton
                 android:id="@+id/favourite_button"
-                android:layout_width="37dp"
-                android:layout_height="match_parent"
-                android:background="@color/lightBackgroundColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackgroundBorderless"
+                android:src="@drawable/favorite_border_icon"
 
-                android:src="@drawable/favorite_border_icon"></ImageButton>
+                ></ImageButton>
 
             <ImageButton
                 android:id="@+id/share_button"
-                android:layout_width="37dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_height="wrap_content"
                 android:background="@color/lightBackgroundColor"
                 android:src="@drawable/share_icon"></ImageButton>
         </LinearLayout>

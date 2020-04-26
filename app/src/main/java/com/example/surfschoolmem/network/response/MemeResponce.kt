@@ -1,6 +1,6 @@
 package com.example.surfschoolmem.network.response
 
-import com.example.surfschoolmem.network.structures.Meme
+import com.example.surfschoolmem.structures.Meme
 import com.google.gson.annotations.SerializedName
 
 data class MemeResponce(

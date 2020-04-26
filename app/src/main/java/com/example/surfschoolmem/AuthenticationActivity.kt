@@ -9,7 +9,7 @@ import androidx.core.widget.doAfterTextChanged
 import com.example.surfschoolmem.network.ApiService
 import com.example.surfschoolmem.network.RetrofitCallback
 import com.example.surfschoolmem.network.response.LoginResponse
-import com.example.surfschoolmem.network.structures.User
+import com.example.surfschoolmem.structures.User
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_authentication.*
 import retrofit2.Retrofit

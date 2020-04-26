@@ -1,4 +1,4 @@
-package com.example.surfschoolmem.network.structures
+package com.example.surfschoolmem.structures
 
 data class User (
     val token: String,
