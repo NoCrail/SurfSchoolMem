@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.surfschoolmem.structures.Meme
 
-class Adapter(private val memes : List<Meme>, private val actionClicker: ActionClick) : RecyclerView.Adapter<Adapter.MemeViewHolder>() {
-    inner class MemeViewHolder(view : View) : RecyclerView.ViewHolder(view){
-        val memeImage : ImageView = view.findViewById(R.id.memeImage)
+class Adapter(private val memes: List<Meme>, private val actionClicker: ActionClick) :
+    RecyclerView.Adapter<Adapter.MemeViewHolder>() {
+    inner class MemeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val memeImage: ImageView = view.findViewById(R.id.memeImage)
         val memeTitle: TextView = view.findViewById(R.id.memeTitle)
-        val favButton : ImageButton = view.findViewById(R.id.favourite_button)
-        val shareButton : ImageButton = view.findViewById(R.id.share_button)
+        val favButton: ImageButton = view.findViewById(R.id.favourite_button)
+        val shareButton: ImageButton = view.findViewById(R.id.share_button)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MemeViewHolder {
@@ -30,17 +31,24 @@ class Adapter(private val memes : List<Meme>, private val actionClicker: ActionC
     override fun onBindViewHolder(holder: MemeViewHolder, position: Int) {
         val meme = memes[position]
         holder.memeTitle.text = meme.title
-        holder.memeImage.setOnClickListener{actionClicker.onMemeClick(meme)}
-        if(meme.isFavorite) holder.favButton.setImageResource(R.drawable.favorite_icon)
-        holder.favButton.setOnClickListener{actionClicker.onFavClick(meme, it as ImageButton, position)}
-        holder.shareButton.setOnClickListener { actionClicker.onShareClick(meme) }
+        holder.memeImage.setOnClickListener { actionClicker.onMemeClick(meme, position) }
+        if (meme.isFavorite) holder.favButton.setImageResource(R.drawable.favorite_icon)
+        else holder.favButton.setImageResource(R.drawable.favorite_border_icon)
+        holder.favButton.setOnClickListener {
+            actionClicker.onFavClick(
+                meme,
+                it as ImageButton,
+                position
+            )
+        }
+        holder.shareButton.setOnClickListener { actionClicker.onShareClick(meme, position) }
         Glide.with(holder.memeImage.context).load(meme.photoUrl).into(holder.memeImage)
     }
 
     interface ActionClick {
-        fun onFavClick(meme : Meme, view: ImageButton, position: Int)
-        fun onShareClick(meme : Meme)
-        fun onMemeClick(meme:Meme)
+        fun onFavClick(meme: Meme, view: ImageButton, position: Int)
+        fun onShareClick(meme: Meme, position: Int)
+        fun onMemeClick(meme: Meme, position: Int)
     }
 
 

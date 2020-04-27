@@ -3,7 +3,6 @@ package com.example.surfschoolmem.network
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.lang.IllegalStateException
 
 class RetrofitCallback<T>(val onSuccess: (T) -> Unit, val onError: (Throwable) -> Unit) :
     Callback<T> {

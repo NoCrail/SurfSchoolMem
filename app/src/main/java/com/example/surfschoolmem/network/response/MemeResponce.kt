@@ -17,7 +17,7 @@ data class MemeResponce(
     @SerializedName("photoUrl")
     val photoUrl: String?
 ) {
-    fun convert(): Meme{
+    fun convert(): Meme {
         return Meme(
             id ?: 0,
             title,

@@ -1,13 +1,12 @@
 package com.example.surfschoolmem
 
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
 
 
     lateinit var pref: SharedPreferences
@@ -23,13 +22,12 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
 
-
-
     }
 
-    fun InitFragment(){
+    fun InitFragment() {
         val fragment = FeedFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.FragmentContainer_Layout, fragment, fragment.javaClass.getSimpleName())
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.FragmentContainer_Layout, fragment, fragment.javaClass.getSimpleName())
             .commit()
     }
 
@@ -50,13 +48,21 @@ class MainActivity : AppCompatActivity() {
                 R.id.add -> {
 
                     val fragment = AddMemFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.FragmentContainer_Layout, fragment, fragment.javaClass.simpleName)
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.FragmentContainer_Layout,
+                        fragment,
+                        fragment.javaClass.simpleName
+                    )
                         .commit()
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.profile -> {
                     val fragment = ProfileFragment()
-                    supportFragmentManager.beginTransaction().replace(R.id.FragmentContainer_Layout, fragment, fragment.javaClass.getSimpleName())
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.FragmentContainer_Layout,
+                        fragment,
+                        fragment.javaClass.getSimpleName()
+                    )
                         .commit()
                     return@OnNavigationItemSelectedListener true
                 }

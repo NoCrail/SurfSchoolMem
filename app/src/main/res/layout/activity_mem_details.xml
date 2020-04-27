@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/AppTheme"
     android:background="@color/colorPrimaryDark"
+    android:theme="@style/AppTheme"
     tools:context=".MemDetailsActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -17,12 +17,12 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:minWidth="409dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:minWidth="409dp">
 
             <ImageButton
                 android:id="@+id/closeDetailsBtn"
@@ -81,11 +81,11 @@
 
                 <ImageView
                     android:id="@+id/memeImage"
-                    android:src="@drawable/test_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
                     android:scaleType="fitStart"
+                    android:src="@drawable/test_image"
                     android:transitionName="image" />
 
             </androidx.cardview.widget.CardView>
@@ -126,15 +126,15 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <CheckBox
+                    <ImageButton
                         android:id="@+id/favoriteButton"
                         android:layout_width="24dp"
                         android:layout_height="28dp"
                         android:layout_gravity="center"
+                        android:background="?selectableItemBackgroundBorderless"
 
-
-                        android:button="@drawable/favorite_border_icon"
-                        android:clickable="false" />
+                        android:clickable="false"
+                        android:src="@drawable/favorite_border_icon" />
                 </androidx.cardview.widget.CardView>
             </LinearLayout>
 

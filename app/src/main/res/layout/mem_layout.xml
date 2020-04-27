@@ -2,15 +2,15 @@
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_marginEnd="8dp"
+
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
     android:paddingBottom="8dp"
 
-
     app:cardCornerRadius="8dp">
-
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitStart"
-            android:src="@drawable/test_image"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
@@ -34,6 +34,7 @@
             android:id="@+id/memeTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="4dp"
             android:maxLines="1"
             android:paddingLeft="8dp"
             android:textColor="@android:color/white"
@@ -44,14 +45,14 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="381dp"
-            android:layout_height="34dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
             android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingBottom="8dp"
             android:padding="8dp"
+            android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:paddingBottom="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,17 +62,19 @@
                 android:id="@+id/favourite_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
                 android:background="?selectableItemBackgroundBorderless"
-                android:src="@drawable/favorite_border_icon"
-
-                ></ImageButton>
+                android:src="@drawable/favorite_border_icon"></ImageButton>
 
             <ImageButton
                 android:id="@+id/share_button"
                 android:layout_width="wrap_content"
-                android:layout_marginLeft="4dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
                 android:background="@color/lightBackgroundColor"
+                android:padding="4dp"
                 android:src="@drawable/share_icon"></ImageButton>
         </LinearLayout>
 

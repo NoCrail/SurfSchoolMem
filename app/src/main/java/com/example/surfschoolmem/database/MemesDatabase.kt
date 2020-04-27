@@ -7,8 +7,8 @@ import androidx.room.RoomDatabase
 import com.example.surfschoolmem.structures.Meme
 
 @Database(entities = [Meme::class], version = 1)
-abstract class MemesDatabase: RoomDatabase() {
-    abstract fun memesDao() : MemesDao
+abstract class MemesDatabase : RoomDatabase() {
+    abstract fun memesDao(): MemesDao
 
     companion object {
         private lateinit var database: MemesDatabase

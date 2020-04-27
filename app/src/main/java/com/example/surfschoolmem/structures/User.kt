@@ -1,6 +1,6 @@
 package com.example.surfschoolmem.structures
 
-data class User (
+data class User(
     val token: String,
     val id: Long,
     val userName: String,
