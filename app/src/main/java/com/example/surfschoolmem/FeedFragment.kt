@@ -63,7 +63,9 @@ class FeedFragment : Fragment(), Adapter.ActionClick {
             } else loading_error_tv.visibility = View.GONE
             memesList.clear()
             memesList.addAll(memes)
-            recycler.adapter?.notifyItemChanged(updatedMemePosition)
+            if (memesList.size > 1) recycler.adapter?.notifyDataSetChanged()
+            else
+                recycler.adapter?.notifyItemChanged(updatedMemePosition)
 
         })
 
@@ -76,6 +78,10 @@ class FeedFragment : Fragment(), Adapter.ActionClick {
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadMemes()
+    }
 
     private fun loadMemes() {
         getMemes() {

@@ -24,4 +24,7 @@
     <string name="logout_lbl">Выйти</string>
     <string name="profile_lbl">Профиль</string>
     <string name="meme_created_msg">Мем успешно создан</string>
+    <string name="logout_dialog_title">Действительно хотите выйти?</string>
+    <string name="logout_dialog_logout">Выйти</string>
+    <string name="logout_dialog_cancel">Отмена</string>
 </resources>

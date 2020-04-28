@@ -22,5 +22,8 @@
     <string name="logout_lbl">Logout</string>
     <string name="profile_lbl">Profile</string>
     <string name="meme_created_msg">Meme was successfully created</string>
+    <string name="logout_dialog_title">Do you really want to exit?</string>
+    <string name="logout_dialog_logout">Logout</string>
+    <string name="logout_dialog_cancel">Cancel</string>
 
 </resources>
