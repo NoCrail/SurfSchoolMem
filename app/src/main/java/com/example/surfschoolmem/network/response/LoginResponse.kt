@@ -1,10 +1,10 @@
 package com.example.surfschoolmem.network.response
 
-import com.example.surfschoolmem.network.structures.User
+import com.example.surfschoolmem.structures.User
 
 data class LoginResponse(val accessToken: String, val userInfo: UserInfo?) {
     fun convert(): User {
-        return User (
+        return User(
             accessToken,
             userInfo?.id ?: -1,
             userInfo?.userName ?: "",

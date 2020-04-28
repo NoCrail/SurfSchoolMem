@@ -5,6 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="ErrorColor">#FF575D</color>
     <color name="ActiveColor">#1EF0D7</color>
-    <color name="loginEditTextBg">#2E2C49</color>
-
+    <color name="lightBackgroundColor">#2E2C49</color>
+    <color name="backgroundColor2">#312F51</color>
+    <color name="bottomMenu">#12102B</color>
 </resources>

@@ -2,37 +2,21 @@ package com.example.surfschoolmem
 
 import android.content.Intent
 import android.content.SharedPreferences
-import android.graphics.PorterDuff
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.provider.CalendarContract
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.content.ContextCompat
-import androidx.core.view.isVisible
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
-import androidx.core.widget.doOnTextChanged
 import com.example.surfschoolmem.network.ApiService
 import com.example.surfschoolmem.network.RetrofitCallback
 import com.example.surfschoolmem.network.response.LoginResponse
-import com.example.surfschoolmem.network.structures.User
+import com.example.surfschoolmem.structures.User
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_authentication.*
-import kotlinx.android.synthetic.main.activity_authentication.view.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
 class AuthenticationActivity : AppCompatActivity() {
-
 
 
     lateinit var pref: SharedPreferences
@@ -59,11 +43,11 @@ class AuthenticationActivity : AppCompatActivity() {
                 when {
                     it.isSuccess -> {
                         val editor = pref.edit()
-                        editor.putString(ID_PREF, it.getOrNull()!!.id.toString())
-                        editor.putString(USERNAME, it.getOrNull()!!.userName)
-                        editor.putString(FIRST_NAME, it.getOrNull()!!.firstName)
-                        editor.putString(LAST_NAME, it.getOrNull()!!.lastName)
-                        editor.putString(USER_DESCRIPTION, it.getOrNull()!!.userDescription)
+                        editor.putString(ID_PREF, it.getOrNull()?.id.toString())
+                        editor.putString(USERNAME, it.getOrNull()?.userName)
+                        editor.putString(FIRST_NAME, it.getOrNull()?.firstName)
+                        editor.putString(LAST_NAME, it.getOrNull()?.lastName)
+                        editor.putString(USER_DESCRIPTION, it.getOrNull()?.userDescription)
                         editor.apply()
                         startActivity(Intent(this, MainActivity::class.java)) //MainActivity
                         finish()
@@ -71,7 +55,11 @@ class AuthenticationActivity : AppCompatActivity() {
                     else -> {
 
                         hideProgress()
-                        val snackbar = Snackbar.make(linearlayout, getString(R.string.LoginError), Snackbar.LENGTH_LONG)
+                        val snackbar = Snackbar.make(
+                            linearlayout,
+                            getString(R.string.login_error_msg),
+                            Snackbar.LENGTH_LONG
+                        )
                         snackbar.view.setBackgroundColor(getColor(R.color.ErrorColor))
                         snackbar.show()
 
@@ -80,16 +68,6 @@ class AuthenticationActivity : AppCompatActivity() {
                 }
             }
         }
-
-
-
-
-
-
-
-
-
-
 
 
     }
@@ -112,28 +90,29 @@ class AuthenticationActivity : AppCompatActivity() {
     private fun initEdit() {
         login_edit_text.doAfterTextChanged {
             login_field_box.error =
-                if (it.isNullOrBlank()) getString(R.string.EmptyFieldMsg) else null
+                if (it.isNullOrBlank()) getString(R.string.empty_field_msg) else null
 
         }
         password_edit_text.doAfterTextChanged {
             if (it.isNullOrBlank()) password_field_box.error =
-                getString(R.string.EmptyFieldMsg) else
+                getString(R.string.empty_field_msg) else
                 if (it.length <= 4) {
 
-                    password_field_box.error = getString(R.string.ShortPassError)
+                    password_field_box.error = getString(R.string.short_password_msg)
                 } else password_field_box.error = null
 
         }
     }
 
     private fun showProgress() {
-        progressBar3.visibility = View.VISIBLE
+        progressBar.visibility = View.VISIBLE
         loginButton.setText("")
     }
 
     private fun hideProgress() {
-        progressBar3.visibility = View.INVISIBLE
-        loginButton.setText(getString(R.string.Login))
+        progressBar.visibility = View.INVISIBLE
+        loginButton.setText(getString(R.string.login_lbl))
+
     }
 
 

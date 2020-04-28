@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SurfSchoolMem</string>
-    <string name="Login">Логин</string>
-    <string name="Password">Пароль</string>
-    <string name="SignIn">Войти</string>
-    <string name="EmptyFieldMsg">Поле не может быть пустым</string>
-    <string name="ShortPassError">Слишком короткий пароль</string>
-    <string name="LoginError">Вы ввели неверные данные. Попробуйте еще раз</string>
+    <string name="login_lbl">Логин</string>
+    <string name="password_lbl">Пароль</string>
+    <string name="sign_in_btn">Войти</string>
+    <string name="empty_field_msg">Поле не может быть пустым</string>
+    <string name="short_password_msg">Слишком короткий пароль</string>
+    <string name="login_error_msg">Вы ввели неверные данные. Попробуйте еще раз</string>
+    <string name="mems_loading_error_msg">"Не удалось загрузить ленту
+        Обновите экран или попробуйте позже"</string>
+    <string name="toolbar_popular_memes">Популярные мемы</string>
+    <string name="today">Сегодня</string>
+    <string name="yesterday">Вчера</string>
+    <string name="n_days_ago">%1$d д. назад</string>
 </resources>
