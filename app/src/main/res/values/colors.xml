@@ -2,10 +2,12 @@
 <resources>
     <color name="colorPrimary">#23213F</color>
     <color name="colorPrimaryDark">#23213F</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorAccent">#CD01A494</color>
     <color name="ErrorColor">#FF575D</color>
     <color name="ActiveColor">#1EF0D7</color>
     <color name="lightBackgroundColor">#2E2C49</color>
     <color name="backgroundColor2">#312F51</color>
     <color name="bottomMenu">#12102B</color>
+    <color name="colorShadow">#aa31304c</color>
+
 </resources>

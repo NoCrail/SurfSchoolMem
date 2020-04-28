@@ -25,7 +25,7 @@
             android:minWidth="409dp">
 
             <ImageButton
-                android:id="@+id/closeDetailsBtn"
+                android:id="@+id/closeMemeCreateFragment"
                 android:layout_width="wrap_content"
                 android:layout_height="43dp"
                 android:background="?selectableItemBackgroundBorderless"
@@ -113,8 +113,6 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     android:layout_weight="0"
-                    android:clickable="true"
-                    android:focusable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:transitionName="favorite"
                     app:cardBackgroundColor="@android:color/transparent"

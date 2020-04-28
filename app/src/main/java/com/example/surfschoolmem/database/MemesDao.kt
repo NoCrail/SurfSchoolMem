@@ -14,4 +14,10 @@ interface MemesDao {
 
     @Update
     fun update(meme: Meme)
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insert(meme: Meme)
+
+    @Query("SELECT * FROM Meme WHERE author=:id")
+    fun getByAuthor(id: Long) : LiveData<List<Meme>>
 }

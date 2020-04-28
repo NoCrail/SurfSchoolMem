@@ -9,6 +9,11 @@
 
     </style>
 
+    <style name="PopUpMenu" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:backgroundTint">@color/lightBackgroundColor</item>
+
+    </style>
+
     <!-- This style is for the splash screen -->
     <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents.NoActionBar">
         <item name="windowActionBar">false</item>

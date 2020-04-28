@@ -11,6 +11,16 @@
     <string name="today">Today</string>
     <string name="yesterday">Yesterday</string>
     <string name="n_days_ago">%1$d days ago</string>
-
+    <string name="create_btn">Create</string>
+    <string name="title_lbl">Title</string>
+    <string name="description_lbl">Text</string>
+    <string-array name="attach_source">
+        <item>Select from gallery</item>
+        <item>Create new photo</item>
+    </string-array>
+    <string name="about_lbl">About</string>
+    <string name="logout_lbl">Logout</string>
+    <string name="profile_lbl">Profile</string>
+    <string name="meme_created_msg">Meme was successfully created</string>
 
 </resources>

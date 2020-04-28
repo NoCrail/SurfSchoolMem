@@ -32,13 +32,11 @@ class MemDetailsActivity : AppCompatActivity() {
         dao = MemesDatabase.instance(applicationContext).memesDao()
         favoriteButton.setOnClickListener {
             meme = setFavourite(meme)
-            favButtonSwitch(meme.isFavorite, it as ImageButton)
+            favButtonSwitch(meme.isFavorite, favoriteButton)
 
         }
 
-
-        setSupportActionBar(toolbar)
-        actionBar?.setDisplayHomeAsUpEnabled(true)
+        closeMemeCreateFragment.setOnClickListener { onBackPressed() }
 
     }
 
@@ -49,7 +47,8 @@ class MemDetailsActivity : AppCompatActivity() {
             meme.description,
             !meme.isFavorite,
             meme.createdDate,
-            meme.photoUrl
+            meme.photoUrl,
+            meme.author
         )
         GlobalScope.launch {
             with(Dispatchers.IO) {
@@ -67,25 +66,28 @@ class MemDetailsActivity : AppCompatActivity() {
     companion object {
         fun createExtraIntent(context: Context, meme: Meme): Intent {
             return Intent(context, MemDetailsActivity::class.java).apply {
-                putExtra("id", meme.id)
-                putExtra("title", meme.title)
-                putExtra("description", meme.description)
-                putExtra("isFavorite", meme.isFavorite)
-                putExtra("createdDate", meme.createdDate)
-                putExtra("photoUrl", meme.photoUrl)
-                //putExtra("author", meme.author)
+                putExtra(ID_PREF, meme.id)
+                putExtra(MEM_TITLE, meme.title)
+                putExtra(MEM_DESCRIPTION, meme.description)
+                putExtra(IS_FAVORITE, meme.isFavorite)
+                putExtra(CREATED_DATE, meme.createdDate)
+                putExtra(PHOTO_URL, meme.photoUrl)
+                putExtra(AUTHOR_ID, meme.author)
             }
         }
     }
 
     private fun parseExtraIntent(intent: Intent): Meme =
         Meme(
-            intent.getLongExtra("id", 0),
-            intent.getStringExtra("title"),
-            intent.getStringExtra("description"),
-            intent.getBooleanExtra("isFavorite", false),
-            intent.getLongExtra("createdDate", 0),
-            intent.getStringExtra("photoUrl")
+            intent.getLongExtra(ID_PREF, 0),
+            intent.getStringExtra(MEM_TITLE),
+            intent.getStringExtra(MEM_DESCRIPTION),
+            intent.getBooleanExtra(IS_FAVORITE, false),
+            intent.getLongExtra(CREATED_DATE, 0),
+            intent.getStringExtra(PHOTO_URL),
+            intent.getLongExtra(AUTHOR_ID, 0).takeIf {
+                it!=0L
+            }
         )
 
 }

@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.SimpleItemAnimator
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.surfschoolmem.database.MemesDao
 import com.example.surfschoolmem.database.MemesDatabase
@@ -32,7 +31,7 @@ class FeedFragment : Fragment(), Adapter.ActionClick {
         baseUrl("https://demo2407529.mockable.io/")
         addConverterFactory(GsonConverterFactory.create())
     }.build()
-    val rt2 = rt.create(ApiService::class.java)
+    val apiService = rt.create(ApiService::class.java)
 
     val memesList = mutableListOf<Meme>()
 
@@ -54,7 +53,7 @@ class FeedFragment : Fragment(), Adapter.ActionClick {
 
         recycler.layoutManager = StaggeredGridLayoutManager(2, 1)
         recycler.adapter = Adapter(memesList, this)
-        (recycler.itemAnimator as SimpleItemAnimator).supportsChangeAnimations = false
+        recycler.itemAnimator = null
 
         dao = MemesDatabase.instance(requireContext()).memesDao()
         dao.getAll().observe(this, Observer { memes ->
@@ -83,8 +82,6 @@ class FeedFragment : Fragment(), Adapter.ActionClick {
 
             it.getOrNull()?.let { memes ->
                 loading_error_tv.visibility = View.INVISIBLE
-                //memesList.clear()
-                //memesList.addAll(memes)
                 GlobalScope.launch {
                     with(Dispatchers.IO) {
                         dao.insertAll(memes)
@@ -103,7 +100,7 @@ class FeedFragment : Fragment(), Adapter.ActionClick {
     }
 
     private fun getMemes(onDataReceived: (data: Result<List<Meme>>) -> Unit) {
-        rt2.getMemes().enqueue(
+        apiService.getMemes().enqueue(
             RetrofitCallback<List<MemeResponce>>({
                 onDataReceived(Result.success(it.map { it.convert() }))
             },
@@ -115,14 +112,14 @@ class FeedFragment : Fragment(), Adapter.ActionClick {
 
     override fun onFavClick(meme: Meme, but: ImageButton, position: Int) {
         updatedMemePosition = position
-        //meme.isFavorite = !meme.isFavorite
         val updatedMeme = Meme(
             meme.id,
             meme.title,
             meme.description,
             !meme.isFavorite,
             meme.createdDate,
-            meme.photoUrl
+            meme.photoUrl,
+            meme.author
         )
         favButtonSwitch(updatedMeme.isFavorite, but)
         GlobalScope.launch {

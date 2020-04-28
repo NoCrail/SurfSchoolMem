@@ -13,4 +13,15 @@
     <string name="today">Сегодня</string>
     <string name="yesterday">Вчера</string>
     <string name="n_days_ago">%1$d д. назад</string>
+    <string name="create_btn">Создать</string>
+    <string name="title_lbl">Заголовок</string>
+    <string name="description_lbl">Текст</string>
+    <string-array name="attach_source">
+        <item>Выбрать из галлереи</item>
+        <item>Сделать фото</item>
+    </string-array>
+    <string name="about_lbl">О приложении</string>
+    <string name="logout_lbl">Выйти</string>
+    <string name="profile_lbl">Профиль</string>
+    <string name="meme_created_msg">Мем успешно создан</string>
 </resources>
