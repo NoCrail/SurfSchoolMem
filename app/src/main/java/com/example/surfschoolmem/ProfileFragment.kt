@@ -8,7 +8,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -17,9 +16,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.surfschoolmem.database.MemesDao
 import com.example.surfschoolmem.database.MemesDatabase
 import com.example.surfschoolmem.structures.Meme
-import kotlinx.android.synthetic.main.fragment_profile.recycler
-import kotlinx.android.synthetic.main.fragment_profile.toolbar
-
+import kotlinx.android.synthetic.main.fragment_profile.*
 
 
 class ProfileFragment : Fragment(), Adapter.ActionClick {
@@ -45,19 +42,32 @@ class ProfileFragment : Fragment(), Adapter.ActionClick {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pref = requireContext().getSharedPreferences(APP_PREFERENCES, AppCompatActivity.MODE_PRIVATE)
+        pref =
+            requireContext().getSharedPreferences(APP_PREFERENCES, AppCompatActivity.MODE_PRIVATE)
         recycler.layoutManager = StaggeredGridLayoutManager(2, 1)
         recycler.adapter = Adapter(memesList, this)
         recycler.itemAnimator = null
         val test = pref.getLong(ID_PREF, 0)
 
-        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.Q){
-            toolbar.overflowIcon?.setColorFilter(BlendModeColorFilter(ContextCompat.getColor(requireContext(), R.color.ActiveColor), BlendMode.SRC_ATOP))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            toolbar.overflowIcon?.setColorFilter(
+                BlendModeColorFilter(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.ActiveColor
+                    ), BlendMode.SRC_ATOP
+                )
+            )
         } else
-            toolbar.overflowIcon?.setColorFilter(ContextCompat.getColor(requireContext(), R.color.ActiveColor), PorterDuff.Mode.SRC_ATOP)
+            toolbar.overflowIcon?.setColorFilter(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.ActiveColor
+                ), PorterDuff.Mode.SRC_ATOP
+            )
         (activity as AppCompatActivity).setSupportActionBar(toolbar)
         setHasOptionsMenu(true)
-        (activity as AppCompatActivity).title=""
+        (activity as AppCompatActivity).title = ""
 
         dao = MemesDatabase.instance(requireContext()).memesDao()
         dao.getByAuthor(pref.getLong(ID_PREF, 0)).observe(viewLifecycleOwner, Observer { memes ->
@@ -68,7 +78,6 @@ class ProfileFragment : Fragment(), Adapter.ActionClick {
             memesList.addAll(memes)
             recycler.adapter?.notifyItemChanged(updatedMemePosition)
         })
-
 
 
     }

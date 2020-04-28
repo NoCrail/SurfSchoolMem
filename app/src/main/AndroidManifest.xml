@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".MemDetailsActivity"/>
+        <activity android:name=".MemDetailsActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -24,6 +24,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider>
+
         <activity
             android:name=".AuthenticationActivity"
             android:windowSoftInputMode="adjustResize" />

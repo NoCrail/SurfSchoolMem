@@ -19,5 +19,5 @@ interface MemesDao {
     fun insert(meme: Meme)
 
     @Query("SELECT * FROM Meme WHERE author=:id")
-    fun getByAuthor(id: Long) : LiveData<List<Meme>>
+    fun getByAuthor(id: Long): LiveData<List<Meme>>
 }

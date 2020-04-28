@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AddMemFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -77,83 +77,84 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/title_field_box"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/title_field_box"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/lightBackgroundColor"
-        app:boxBackgroundMode="none"
-        app:boxStrokeColor="@color/ActiveColor"
-        app:counterEnabled="true"
-        app:counterMaxLength="140"
-        app:counterOverflowTextColor="@color/ErrorColor"
-        app:errorEnabled="true"
-        app:errorIconDrawable="@android:color/transparent"
-        app:errorTextColor="@color/ErrorColor"
-        app:hintAnimationEnabled="false"
-        app:hintEnabled="false">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/lightBackgroundColor"
+                app:boxBackgroundMode="none"
+                app:boxStrokeColor="@color/ActiveColor"
+                app:counterEnabled="true"
+                app:counterMaxLength="140"
+                app:counterOverflowTextColor="@color/ErrorColor"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@android:color/transparent"
+                app:errorTextColor="@color/ErrorColor"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/title_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/title_lbl"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/title_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/title_lbl"
 
-            android:imeOptions="actionNext"
+                    android:imeOptions="actionNext"
 
-            android:maxLength="141"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="28sp" />
+                    android:maxLength="141"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
+                    android:textSize="28sp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/description_field_box"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/description_field_box"
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/lightBackgroundColor"
-        app:boxBackgroundMode="none"
-        app:boxStrokeColor="@color/ActiveColor"
-        app:counterEnabled="true"
-        app:counterMaxLength="1000"
-        app:counterOverflowTextColor="@color/ErrorColor"
-        app:errorEnabled="true"
-        app:errorIconDrawable="@android:color/transparent"
-        app:errorTextColor="@color/ErrorColor"
-        app:hintAnimationEnabled="false"
-        app:hintEnabled="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxBackgroundColor="@color/lightBackgroundColor"
+                app:boxBackgroundMode="none"
+                app:boxStrokeColor="@color/ActiveColor"
+                app:counterEnabled="true"
+                app:counterMaxLength="1000"
+                app:counterOverflowTextColor="@color/ErrorColor"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@android:color/transparent"
+                app:errorTextColor="@color/ErrorColor"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_field_box">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_field_box">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/description_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/description_lbl"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/description_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/description_lbl"
 
-            android:imeOptions="actionNext"
+                    android:imeOptions="actionNext"
 
-            android:maxLength="1001"
-            android:textColor="@android:color/white"
-            android:textColorHint="@android:color/white"
-            android:textSize="16sp" />
+                    android:maxLength="1001"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white"
+                    android:textSize="16sp" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_marginTop="16dp"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/removeImage"
@@ -161,12 +162,12 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="12dp"
                     android:clickable="true"
-                    tools:visibility="gone"
                     android:focusable="true"
                     app:cardBackgroundColor="@color/colorShadow"
                     app:cardCornerRadius="20dp"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="gone">
 
                     <ImageView
 
@@ -174,8 +175,7 @@
                         android:layout_height="40dp"
                         android:background="?selectableItemBackgroundBorderless"
                         android:padding="4dp"
-                        android:src="@drawable/ic_close"
-                         />
+                        android:src="@drawable/ic_close" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -188,8 +188,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                     />
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -197,21 +196,21 @@
     </ScrollView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/addImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/backgroundColor2"
         app:cardCornerRadius="8dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <ImageView
 
             android:layout_width="40dp"
-            android:background="?selectableItemBackgroundBorderless"
             android:layout_height="40dp"
+            android:background="?selectableItemBackgroundBorderless"
             android:src="@drawable/ic_attach" />
 
     </androidx.cardview.widget.CardView>

@@ -43,7 +43,7 @@ class AuthenticationActivity : AppCompatActivity() {
                 when {
                     it.isSuccess -> {
                         val editor = pref.edit()
-                        editor.putLong(ID_PREF, it.getOrNull()?.id?:0)
+                        editor.putLong(ID_PREF, it.getOrNull()?.id ?: 0)
                         editor.putString(USERNAME, it.getOrNull()?.userName)
                         editor.putString(FIRST_NAME, it.getOrNull()?.firstName)
                         editor.putString(LAST_NAME, it.getOrNull()?.lastName)

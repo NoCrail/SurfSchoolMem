@@ -42,7 +42,7 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
 
     lateinit var pref: SharedPreferences
     lateinit var dao: MemesDao
-    var image:Bitmap? = null
+    var image: Bitmap? = null
     lateinit var foreground: Drawable
 
     override fun onCreateView(
@@ -57,7 +57,8 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        pref = requireContext().getSharedPreferences(APP_PREFERENCES, AppCompatActivity.MODE_PRIVATE)
+        pref =
+            requireContext().getSharedPreferences(APP_PREFERENCES, AppCompatActivity.MODE_PRIVATE)
         dao = MemesDatabase.instance(requireContext()).memesDao()
         removeImage.visibility = View.GONE
         setOnFieldsChanger()
@@ -66,7 +67,7 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
             a.showLastFragment()
         }
         removeImage.setOnClickListener {
-            image=null
+            image = null
             removeImage.visibility = View.GONE
             Glide.with(this).clear(uploadMemeImage)
         }
@@ -75,9 +76,10 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
             dialog.show((activity as AppCompatActivity).supportFragmentManager, "dialog")
         }
         createBtn.setOnClickListener {
-            if(image==null) return@setOnClickListener
+            if (image == null) return@setOnClickListener
             val time = Calendar.getInstance().timeInMillis
-            val imageFile = File(requireContext().cacheDir, "meme$time.jpg").apply {  createNewFile()}
+            val imageFile =
+                File(requireContext().cacheDir, "meme$time.jpg").apply { createNewFile() }
 
             val bos = ByteArrayOutputStream()
             image?.compress(Bitmap.CompressFormat.JPEG, 100, bos)
@@ -92,10 +94,10 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
                 title_edit_text.text.toString(),
                 description_edit_text.text.toString(),
                 true,
-                time/1000,
+                time / 1000,
                 imageFile.absolutePath,
                 pref.getLong(ID_PREF, 0).takeIf {
-                    it!=0L
+                    it != 0L
                 }
             )
             GlobalScope.launch {
@@ -108,7 +110,7 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
     }
 
     override fun onDialogFinish(result: SourceDialog.DialogResult) {
-        when(result){
+        when (result) {
             SourceDialog.DialogResult.CAMERA -> {
                 if (ContextCompat.checkSelfPermission(
                         requireContext(),
@@ -120,14 +122,20 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
                     requestPermissions(arrayOf(Manifest.permission.CAMERA), 11)
             }
             SourceDialog.DialogResult.GALLERY -> {
-                startActivityForResult(Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI),10)
+                startActivityForResult(
+                    Intent(
+                        Intent.ACTION_PICK,
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                    ), 10
+                )
             }
         }
     }
 
     private fun startCameraActivity() {
-        val newMemeFile = File(requireContext().cacheDir,"meme.jpg")
-        val extraFile = FileProvider.getUriForFile(requireContext(), BuildConfig.APPLICATION_ID, newMemeFile)
+        val newMemeFile = File(requireContext().cacheDir, "meme.jpg")
+        val extraFile =
+            FileProvider.getUriForFile(requireContext(), BuildConfig.APPLICATION_ID, newMemeFile)
 
         val takePhotoIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         takePhotoIntent.putExtra(MediaStore.EXTRA_OUTPUT, extraFile)
@@ -138,11 +146,12 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
         super.onActivityResult(requestCode, resultCode, data)
         val fixBitmap: Bitmap? = when {
             resultCode == Activity.RESULT_OK && data != null && requestCode == 10 -> {
-                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                          val source =ImageDecoder.createSource(requireContext().contentResolver,
-                              data.data!!
-                         )
-                          ImageDecoder.decodeBitmap(source)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    val source = ImageDecoder.createSource(
+                        requireContext().contentResolver,
+                        data.data!!
+                    )
+                    ImageDecoder.decodeBitmap(source)
 
                 } else {
                     MediaStore.Images.Media.getBitmap(requireContext().contentResolver, data.data)
@@ -169,15 +178,15 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode==11&&grantResults[0]==PackageManager.PERMISSION_GRANTED)
+        if (requestCode == 11 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
             startCameraActivity()
 
     }
 
-    private fun setOnFieldsChanger(){
+    private fun setOnFieldsChanger() {
         foreground = createBtn.foreground
         createBtn.foreground = null
-        title_edit_text.addTextChangedListener(object: TextWatcher{
+        title_edit_text.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
             }
@@ -194,15 +203,14 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
 
     }
 
-    private fun emptyMemeCheck(){
+    private fun emptyMemeCheck() {
         //context!!.theme.resolveAttribute(android.R.attr.selectableItemBackground, foreground, true)
-        if((title_edit_text.length()<1)||(image==null)||(title_edit_text.length()>140)||(description_edit_text.length()>1000)){
+        if ((title_edit_text.length() < 1) || (image == null) || (title_edit_text.length() > 140) || (description_edit_text.length() > 1000)) {
             createBtn.isClickable = false
             createBtn.isFocusable = false
             createBtn.foreground = null
             createBtnText.setTextColor(resources.getColor(R.color.colorAccent))
-        } else
-        {
+        } else {
             createBtn.foreground = foreground
             createBtn.isClickable = true
             createBtn.isFocusable = true
@@ -210,12 +218,13 @@ class AddMemFragment : Fragment(), SourceDialog.ListDialogListner {
         }
     }
 
-    private fun clearFieldsAfterCreating(){
-        image=null
+    private fun clearFieldsAfterCreating() {
+        image = null
         removeImage.visibility = View.GONE
         Glide.with(this).clear(uploadMemeImage)
         title_edit_text.text?.clear()
         description_edit_text.text?.clear()
-        Toast.makeText(requireContext(), getString(R.string.meme_created_msg), Toast.LENGTH_LONG).show()
+        Toast.makeText(requireContext(), getString(R.string.meme_created_msg), Toast.LENGTH_LONG)
+            .show()
     }
 }

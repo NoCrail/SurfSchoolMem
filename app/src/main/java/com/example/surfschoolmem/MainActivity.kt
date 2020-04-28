@@ -2,8 +2,6 @@ package com.example.surfschoolmem
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.surfschoolm.AddMemFragment
@@ -54,12 +52,12 @@ class MainActivity : AppCompatActivity() {
                     showFragment(fragment)
                     true
                 }
-                else ->false
+                else -> false
             }
 
         }
 
-    private fun showFragment(fragment: Fragment){
+    private fun showFragment(fragment: Fragment) {
         val fragmentName = fragment.javaClass.getSimpleName()
 
         supportFragmentManager.beginTransaction().apply {
@@ -68,7 +66,7 @@ class MainActivity : AppCompatActivity() {
             }
             if (!fragments.contains(fragmentName)) {
                 //Toast.makeText(applicationContext, fragmentName, Toast.LENGTH_LONG).show()
-                add(R.id.FragmentContainer_Layout,fragment, fragmentName)
+                add(R.id.FragmentContainer_Layout, fragment, fragmentName)
                 fragments.add(fragmentName)
             }
             supportFragmentManager.findFragmentByTag(fragmentName)?.let { show(it) }
@@ -76,8 +74,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun showLastFragment(){
-        when(lastFragment){
+    fun showLastFragment() {
+        when (lastFragment) {
             FeedFragment::class.java.simpleName ->
                 bottomNavigationView.selectedItemId = R.id.feed
             ProfileFragment::class.java.simpleName -> {

@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/aboutMenuBtn"
-        android:title="@string/about_lbl"/>
+        android:title="@string/about_lbl" />
     <item
         android:id="@+id/logoutMenuBtn"
-        android:title="@string/logout_lbl"/>
+        android:title="@string/logout_lbl" />
 </menu>

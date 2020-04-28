@@ -86,7 +86,7 @@ class MemDetailsActivity : AppCompatActivity() {
             intent.getLongExtra(CREATED_DATE, 0),
             intent.getStringExtra(PHOTO_URL),
             intent.getLongExtra(AUTHOR_ID, 0).takeIf {
-                it!=0L
+                it != 0L
             }
         )
 
